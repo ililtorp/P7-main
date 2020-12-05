@@ -51,4 +51,4 @@ def Hiphop(): #Define hiphop site
     db = sqlite3.connect("concerts.db", isolation_level=None) #Connect database to HTML
     db_cursor = db.cursor() #Connect database to HTML
     rows = db_cursor.execute("SELECT * FROM concerts where genre='Hiphop'") #Execute the concerts database
-    return render_template("P7.html", rows=rows, title=title) #Return
+    return render_template("P7.html", rows=rows, title=title) #Return TEST TEST TEST 
