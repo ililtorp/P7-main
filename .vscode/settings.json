@@ -1,6 +1,7 @@
 database
 Updated upstream
 {
+
     "python.pythonPath": "/usr/local/bin/python3"
 
 {
@@ -9,5 +10,6 @@ Stashed changes
 
 {
     "python.pythonPath": "C:\\Users\\lasse\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe"
+main
 main
 }
