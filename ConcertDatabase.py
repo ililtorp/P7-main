@@ -8,7 +8,7 @@ db = sqlite3.connect("concerts.db", isolation_level=None) #Connection to databas
 #db.text_factory = str #Needed to handle strings correctly on mac, not needed in CS50IDE
 db_cursor = db.cursor()
 
-db_cursor.execute("CREATE TABLE concerts (Koncert_id NUMERIC, Koncert TEXT, Beskrivelse TEXT, Spillested TEXT, Genre TEXT, Dato NUMERIC, Tid NUMERIC, Doerene_aabner TEXT, Varighed TEXT, Pris NUMERIC, Pladser TEXT)")
+db_cursor.execute("CREATE TABLE concerts (Koncert_id NUMERIC, Koncert TEXT, Beskrivelse TEXT, Spillested TEXT, Genre1 TEXT, Genre2 TEXT, Dato NUMERIC, Tid NUMERIC, Doerene_aabner TEXT, Varighed TEXT, Pris NUMERIC, Pladser TEXT)")
 
 with open("concerts.csv", "r", encoding="utf-8") as importfile:
     reader = csv.DictReader(importfile, delimiter=",")
@@ -16,7 +16,8 @@ with open("concerts.csv", "r", encoding="utf-8") as importfile:
         Koncert_id = row["Koncert_ID"]
         Koncert = row["Koncert"]
         Beskrivelse = row["Beskrivelse af band"]
-        Genre = row["Genre"]
+        Genre1 = row["Genre1"]
+        Genre2 = row["Genre2"]
         Spillested = row["Spillested"]
         Dato = row["Dato"]
         Tid = row["Tid"]
@@ -24,5 +25,5 @@ with open("concerts.csv", "r", encoding="utf-8") as importfile:
         Varighed = row["Varighed"]
         Pris = row["Pris"]
         Pladser = row["Pladser"]
-        db_cursor.execute("INSERT INTO concerts (Koncert_ID, Koncert, Beskrivelse, Spillested, Genre, Dato, Tid, Doerene_aabner, Varighed, Pris, Pladser) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                          (Koncert_id, Koncert, Beskrivelse, Spillested, Genre, Dato, Tid, Doerene_aabner, Varighed, Pris, Pladser))
+        db_cursor.execute("INSERT INTO concerts (Koncert_ID, Koncert, Beskrivelse, Spillested, Genre1, Genre2, Dato, Tid, Doerene_aabner, Varighed, Pris, Pladser) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                          (Koncert_id, Koncert, Beskrivelse, Spillested, Genre1, Genre2, Dato, Tid, Doerene_aabner, Varighed, Pris, Pladser))
