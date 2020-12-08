@@ -231,24 +231,35 @@
             const danishDate = selecteddate.toLocaleDateString('da-DK'); //Her gør vi det til det danske datoformat
             const link = "/pop?date=" + danishDate; //Her samler vi linket af det faste "pop" og den valgte dato (+)
             document.location.href = link; //Her sendes brugeren videre til den nye side (P7.HTML)
-            document.location.href = "/pop";
 
         }
 
         function myJazz() {
-            document.location.href = "/jazz";
+            const selecteddate = document.getElementById('datePicker').valueAsDate //Her henter vi datoen fra datepicker og gemmer den i variablen const selecteddate
+            const danishDate = selecteddate.toLocaleDateString('da-DK'); //Her gør vi det til det danske datoformat
+            const link = "/jazz?date=" + danishDate; //Her samler vi linket af det faste "pop" og den valgte dato (+)
+            document.location.href = link; //Her sendes brugeren videre til den nye side (P7.HTML)
         }
 
         function myRock() {
-            document.location.href = "/rock";
+            const selecteddate = document.getElementById('datePicker').valueAsDate //Her henter vi datoen fra datepicker og gemmer den i variablen const selecteddate
+            const danishDate = selecteddate.toLocaleDateString('da-DK'); //Her gør vi det til det danske datoformat
+            const link = "/rock?date=" + danishDate; //Her samler vi linket af det faste "pop" og den valgte dato (+)
+            document.location.href = link; //Her sendes brugeren videre til den nye side (P7.HTML)
         }
 
         function myClassic() {
-            document.location.href = "/classic";
+            const selecteddate = document.getElementById('datePicker').valueAsDate //Her henter vi datoen fra datepicker og gemmer den i variablen const selecteddate
+            const danishDate = selecteddate.toLocaleDateString('da-DK'); //Her gør vi det til det danske datoformat
+            const link = "/classic?date=" + danishDate; //Her samler vi linket af det faste "pop" og den valgte dato (+)
+            document.location.href = link; //Her sendes brugeren videre til den nye side (P7.HTML)
         }
 
         function myHiphop() {
-            document.location.href = "/hiphop";
+            const selecteddate = document.getElementById('datePicker').valueAsDate //Her henter vi datoen fra datepicker og gemmer den i variablen const selecteddate
+            const danishDate = selecteddate.toLocaleDateString('da-DK'); //Her gør vi det til det danske datoformat
+            const link = "/hiphop?date=" + danishDate; //Her samler vi linket af det faste "pop" og den valgte dato (+)
+            document.location.href = link; //Her sendes brugeren videre til den nye side (P7.HTML)
         }
         /*BUTTONS FOR CATEGORY END*/
 
