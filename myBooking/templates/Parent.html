@@ -154,6 +154,8 @@
                 <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" href="#">see your tickets</a>
                 <a class="nav-item nav-link" href="#">about us</a>
+                <a class="nav-item nav-link" href="#">See your tickets</a>
+                <a class="nav-item nav-link" href="#">About us</a>
             </div>
         </div>
     </nav>
@@ -174,14 +176,14 @@
                     </div>
                 </div>
             </p>
-            <p> 
-                 <!--Her laves kalenderen-->
-                <input type="date" id="datePicker" name="seletedDate" 
-                min="2020-11-01" max="2021-11-31">
+            <p>
+                <!--Her laves kalenderen-->
+                <input type="date" id="datePicker" name="seletedDate" min="2020-11-01" max="2021-11-31">
             </p>
             <script>
-            document.getElementById('datePicker').valueAsDate = new Date(); //Her sætter vi datoen til dags dato
+                document.getElementById('datePicker').valueAsDate = new Date(); //Her sætter vi datoen til dags dato
             </script>
+
             <p>
                 <div style="text-align: center;">
                     <button onClick="myPop()">POP</button>
@@ -229,6 +231,8 @@
             const danishDate = selecteddate.toLocaleDateString('da-DK'); //Her gør vi det til det danske datoformat
             const link = "/pop?date=" + danishDate; //Her samler vi linket af det faste "pop" og den valgte dato (+)
             document.location.href = link; //Her sendes brugeren videre til den nye side (P7.HTML)
+            document.location.href = "/pop";
+
         }
 
         function myJazz() {
@@ -250,14 +254,15 @@
 
         /* CALENDER SCRIPT*/
 
-       // function myFunction() {
-           // var today = new Date();
-         //   var dato = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-          //  document.getElementById('datePicker').value = new Date().toDateInputValue();
-       // }
+        // function myFunction() {
+        // var today = new Date();
+        //   var dato = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        //  document.getElementById('datePicker').value = new Date().toDateInputValue();
+        // }
 
 
         /*function myCalender() {
+        function myCalender() {
             var x = document.getElementById("myDate").value;
             document.getElementById("demo").innerHTML = x;
         }
@@ -265,5 +270,7 @@
     </script>
 
 </body>
+
+</html>
 
 </html>
