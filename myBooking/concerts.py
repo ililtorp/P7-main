@@ -58,4 +58,3 @@ def chosenConcert():
     db_cursor = db.cursor() #Connect to database 
     rows = db_cursor.execute("SELECT * FROM concerts where Koncert_Id=?", (concertID,)) #Find the concerts matching the criteria genre, date, etc.
     return render_template("Concert.html", rows=rows) #Return pop - her skal jeg undersøge hvordan man gør overskriften dynamisk 
-    
