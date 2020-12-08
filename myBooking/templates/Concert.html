@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Din koncert</title><!--Laves dynamisk-->
+    <!--Headline in tab-->
+</head>
+
+<body>
+    <h1>Din koncert</h1><!--Laves dynamisk-->
+    <!---Headline on webpage-->
+    <ul>
+        {% for row in rows %}
+        <li>
+            {{ row[1] }} {{ row[3] }} {{ row[6] }} {{ row[9] }} {{ row[10] }}
+            <!-- Links to row: Concert, venue, time, price, type of seating-->
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+<script>
+</script>
+
+</html>
