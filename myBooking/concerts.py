@@ -5,6 +5,7 @@ from datetime import datetime
 
 app = Flask(__name__) #Create Flask app
 
+
 @app.route("/") #Frontpage
 def Frontpage(): #Define pop site#
     return render_template("Parent.html") #Return
