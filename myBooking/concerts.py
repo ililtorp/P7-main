@@ -1,5 +1,5 @@
 import sqlite3
-from flask import Flask, render_template, request
+from flask import Flask, redirect, render_template, request
 from datetime import datetime
 
 
@@ -63,10 +63,34 @@ def chosenConcert():
     rows = db_cursor.execute("SELECT * FROM concerts where Koncert_Id=?", (concertID,)) #Find the concerts matching the criteria genre, date, etc.
     return render_template("Concert.html", rows=rows) #Return pop - her skal jeg undersøge hvordan man gør overskriften dynamisk 
 
-@app.route("/booking")
+@app.route("/booking", methods=["GET", "POST"])
 def booking(): 
-    concertID = request.args.get('concertID') #Gets the date from the URL
+    if request.method == "GET":
+        concertID = request.args.get('concertID') #Gets the date from the URL
+        db = sqlite3.connect("concerts.db", isolation_level=None) #Connect database to HTML
+        db_cursor = db.cursor() #Connect to database 
+        rows = db_cursor.execute("SELECT * FROM concerts where Koncert_Id=?", (concertID,)) #Find the concerts matching the criteria genre, date, etc.
+        return render_template("booking.html", rows=rows) #Return booking.html - redirects to the booking page
+    else:
+        name = request.form.get("name")
+        email = request.form.get("email")
+        phone = request.form.get("phone")
+        ConcertID = request.form.get("ConcertID")
+        NTickets = request.form.get("NTickets")
+        db = sqlite3.connect("kunder.db", isolation_level=None) #Connect database to HTML
+        db_cursor = db.cursor() #Connect to database 
+        db_cursor.execute("INSERT INTO kundedata (name, email, phone, ConcertID, NTickets) VALUES (?, ?, ?, ?, ?)", (name, email, phone, ConcertID, NTickets))
+        booking_ID = db_cursor.lastrowid
+        return redirect("/confirmation?bookingID="+str(booking_ID)+"&ConcertID="+str(ConcertID)) #Her skal vi lave et link, til når man succesfuldt har booket sin billet. 
+
+@app.route("/confirmation")
+def confirmation():
+    booking_ID = request.args.get('bookingID')
+    concertID = request.args.get('ConcertID')
+    kunde_db = sqlite3.connect("kunder.db", isolation_level=None) #Connect database to HTML
+    kunde_db_cursor = kunde_db.cursor() #Connect to database
+    rows = kunde_db_cursor.execute("SELECT * FROM kundedata where id=?", (booking_ID,))
     db = sqlite3.connect("concerts.db", isolation_level=None) #Connect database to HTML
     db_cursor = db.cursor() #Connect to database 
-    rows = db_cursor.execute("SELECT * FROM concerts where Koncert_Id=?", (concertID,)) #Find the concerts matching the criteria genre, date, etc.
-    return render_template("booking.html", rows=rows) #Return booking.html - redirects to the booking page
+    concert = db_cursor.execute("SELECT * FROM concerts where Koncert_Id=?", (concertID,))
+    return render_template("billet.html", rows=rows, concert=concert)

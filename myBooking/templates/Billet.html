@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Din koncert</title>
+    <!--Laves dynamisk-->
+    <!--Headline in tab-->
+</head>
+
+<body>
+    {% for concertinfo in concert %}
+        {% for bookinginfo in rows %}<!--Her har vi adgang til alt information om bookingen og koncerten-->
+             <h1>Tillykke du har bestilt billet til {{ concertinfo[1] }}</h1>
+             Kære {{ bookinginfo[1] }}<br /> 
+             Tillykke du har bestilt billet til koncerten med {{ concertinfo[1] }}, billeten er gyldig for {{ bookinginfo[5] }} person(er)<br /> 
+             Koncerten finder sted kl: {{ concertinfo[7] }} d. {{ concertinfo[6] }} i {{ concertinfo[3] }}
+        {% endfor %}
+    {% endfor %}

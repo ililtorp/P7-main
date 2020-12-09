@@ -5,7 +5,7 @@ import codecs
 open("concerts.db", "w").close() #Husk databasen overskrives hver gang denne komando koeres
 
 db = sqlite3.connect("concerts.db", isolation_level=None) #Connection to database, isolaiton level none is needed to directly perform queries on database
-#db.text_factory = str #Needed to handle strings correctly on mac, not needed in CS50IDE
+db.text_factory = str #Needed to handle strings correctly on mac, not needed in CS50IDE
 db_cursor = db.cursor()
 
 db_cursor.execute("CREATE TABLE concerts (Koncert_ID NUMERIC, Koncert TEXT, Beskrivelse TEXT, Spillested TEXT, Genre1 TEXT, Genre2 TEXT, Dato NUMERIC, Tid NUMERIC, Doerene_aabner TEXT, Varighed TEXT, Pris NUMERIC, Pladser TEXT, Billede IMAGE)")
