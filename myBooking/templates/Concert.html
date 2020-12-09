@@ -17,8 +17,12 @@
             {{ row[1] }} {{ row[3] }} {{ row[6] }} {{ row[9] }} {{ row[10] }}
             <!-- Links to row: Concert, venue, time, price, type of seating-->
         </li>
+        <button><a href=/booking?concertID={{row[0]}}>Book your ticket</a></button>
         {% endfor %}
     </ul>
+   
+   
+
 </body>
 
 <script>
