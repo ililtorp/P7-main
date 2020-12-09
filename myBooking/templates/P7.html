@@ -1,9 +1,15 @@
-{% extends Parent.html %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block content %}
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+    <!--Headline in tab-->
+</head>
+
 <body>
     <h1>{{ title }}</h1>
-
     <!---Headline on webpage-->
     <ul>
         {% for row in rows %}
@@ -15,4 +21,7 @@
     </ul>
 </body>
 
-{% endblock %}
+<script>
+</script>
+
+</html>
