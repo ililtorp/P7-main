@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Overskrift</title>
-    </head>
-    <body>
-        <h1>Concerts</h1>
-        <ul>
-            {% for row in rows %}
-                <li>{{ row[1] }} </li><!--{{ row["Genre"] }} {{ row["Dato"] }}-->
-            {% endfor %}
-        </ul>
-    </body>
 
-     <script>
-    
-     </script>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+    <!--Headline in tab-->
+</head>
+
+<body>
+    <h1>{{ title }}</h1>
+    <!---Headline on webpage-->
+    <ul>
+        {% for row in rows %}
+        <li>
+            <a href="/chosenConcert?concertID={{ row[0] }}">{{ row[1] }}</a> {{ row[3] }} {{ row[6] }} {{ row[9] }} {{ row[10] }}
+            <!-- Links to row: Concert, venue, time, price, type of seating-->
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+<script>
+</script>
 
 </html>

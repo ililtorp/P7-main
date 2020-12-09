@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Din koncert</title>
+    <!--Laves dynamisk-->
+    <!--Headline in tab-->
+</head>
+
+<body>
+    <h1>Din koncert</h1>
+    <!--Laves dynamisk-->
+    <!---Headline on webpage-->
+    <ul>
+        {% for row in rows %}
+        <li>
+            {{ row[1] }} {{ row[2] }} {{ row[3] }} {{ row[6] }} {{ row[7] }} {{ row[8] }} {{ row[9] }} {{ row[10] }} {{ row[11] }}
+            <!-- Links to row: 1)Concert, 2) Description, 3) Venue, 6) Date, 7) Time, 8) Doors open, 9) Duration, 10) Price, 11) Type of seating-->
+        </li>
+        <button><a href=/booking?concertID={{row[0]}}>Book your ticket</a></button>
+        {% endfor %}
+    </ul>
+   
+   
+
+</body>
+
+<script>
+</script>
+
+</html>
