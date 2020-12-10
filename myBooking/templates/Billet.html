@@ -3,17 +3,64 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Din koncert</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Din billet</title>
     <!--Laves dynamisk-->
     <!--Headline in tab-->
+    <script src="billetpdf.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+
+    
 </head>
 
 <body>
+  
     {% for concertinfo in concert %}
         {% for bookinginfo in rows %}<!--Her har vi adgang til alt information om bookingen og koncerten-->
-             <h1>Tillykke du har bestilt billet til {{ concertinfo[1] }}</h1>
-             Kære {{ bookinginfo[1] }}<br /> 
-             Tillykke du har bestilt billet til koncerten med {{ concertinfo[1] }}, billeten er gyldig for {{ bookinginfo[5] }} person(er)<br /> 
-             Koncerten finder sted kl: {{ concertinfo[7] }} d. {{ concertinfo[6] }} i {{ concertinfo[3] }}
+             <h1>Din bestilling til koncerten {{ concertinfo[1] }} er gennemført!</h1>
+             {{ concertinfo[15] }}<br /> 
+             {{ bookinginfo[1] }} har nu bestilt {{ bookinginfo[5] }} billetter<br /> 
+             Koncerten finder sted kl: {{ concertinfo[7] }} d. {{ concertinfo[6] }} i {{ concertinfo[12] }} på/i {{ concertinfo[5] }} <br /> 
+             Dørene åbner klokken: {{ concertinfo[8] }} <br /> 
+             Varihed af koncerten: {{ concertinfo[9] }} timer<br /> 
+             Pause i løbet af koncerten: {{ concertinfo[10] }}<br /> 
+             Adressen er {{ concertinfo[16] }} <br /> 
+             Kontakt {{ concertinfo[5] }} på email: {{ concertinfo[18] }} eller via telefon: {{ concertinfo[17] }} 
         {% endfor %}
     {% endfor %}
+    <div class="container d-flex justify-content-center mt-50 mb-50">
+        <div class="row">
+            <div class="col-md-12 text-right mb-3">
+                <button class="btn btn-primary" id="download"> download pdf</button>
+            </div>
+            <div class="col-md-12">
+                <div class="card" id="invoice">
+                    <div class="card-header bg-transparent header-elements-inline">
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+<script>
+    window.onload = function () {
+        document.getElementById("download")
+            .addEventListener("click", () => {
+                const billetpdf = this.document.getElementById("billetpdf");
+                console.log(billetpdf);
+                console.log(window);
+                var opt = {
+                    margin: 1,
+                    filename: 'myfile.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2 },
+                    jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+                };
+                html2pdf().from(billetpdf).set(opt).save();
+            })
+    } 
+</script>     
+</body> 
+
+</HTML>
