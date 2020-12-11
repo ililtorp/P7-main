@@ -15,7 +15,7 @@ def pop(): #Define pop site#
     date = request.args.get('date') #Gets the date from the URL
     db = sqlite3.connect("concerts.db", isolation_level=None) #Connect database to HTML
     db_cursor = db.cursor() #Connect to database 
-    rows = db_cursor.execute("SELECT * FROM concerts where Genre1='Pop' and Dato=?", (date,)) #Find the concerts matching the criteria genre, date, etc.
+    rows = db_cursor.execute("SELECT * FROM concerts where Genre1='Pop'and Dato=?", (date,)) #Find the concerts matching the criteria genre, date, etc.
     return render_template("P7.html", rows=rows, title=title) #Return pop - her skal jeg undersøge hvordan man gør overskriften dynamisk 
     
 

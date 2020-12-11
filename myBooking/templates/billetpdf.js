@@ -1,8 +1,8 @@
 window.onload = function () {
     document.getElementById("download")
         .addEventListener("click", () => {
-            const invoice = this.document.getElementById("invoice");
-            console.log(invoice);
+            const billetpdf = this.document.getElementById("billetpdf");
+            console.log(billetpdf);
             console.log(window);
             var opt = {
                 margin: 1,
@@ -11,6 +11,6 @@ window.onload = function () {
                 html2canvas: { scale: 2 },
                 jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
             };
-            html2pdf().from(invoice).set(opt).save();
+            html2pdf().from(billetpdf).set(opt).save();
         })
 }

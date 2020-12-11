@@ -14,8 +14,8 @@
     <ul>
         {% for row in rows %}
         <li>
-            <a href="/chosenConcert?concertID={{ row[0] }}">{{ row[1] }}</a> i {{ row[3] }} <br /> 
-            {{ row[6] }} {{ row[9] }} {{ row[10] }} <img src="{path}" /> <!--Her skal vi sætte billedet ind-->
+            <a href="/chosenConcert?concertID={{ row[0] }}">{{ row[1] }}</a> i {{ row[5] }} <br /> 
+            Klokken: {{ row[6] }} Varighed: {{ row[9] }} {{ row[10] }} <img src="{path}" /> <!--Her skal vi sætte billedet ind-->
             <!-- Links to row: Concert, venue, time, price, type of seating-->
         </li>
         {% endfor %}
