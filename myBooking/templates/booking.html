@@ -1,7 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dette er bookingsiden</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dette er bookingsiden</title>
+
+        <link rel="stylesheet" href="booking-page.css">
+    </head>
+
+    <body>
+        {% for row in rows %}
+    <div class="container-form">
+        <!--<form action="#">-->
+            <h1>Book your ticket for the {{ row[1] }} concert</h1> <!--Her skal vi finde ud af hvad titlen skal være-->
+            <form action="/booking" method="post">
+                <input type="text" name="name" placeholder="Name">
+                <input type="text" name="email" placeholder="Email Address">
+                <input type="numeric" name="phone" placeholder="Phone">
+                <input type="hidden" name="ConcertID" value={{row[0]}}>
+                <input type="numeric" name="NTickets" placeholder="Number of tickets">
+                <input type="submit" value="Book your ticket">
+            </form>
+        
+
+    <!--Her vælger man antallet af billetter
+        <div class="form-field">
+            <select name="select" id="#">
+            <option value="--Choose--">Choose number of tickets</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="4">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            </select>-->
+
+        </div>
+
+        <ul>
+
+        <!--<button><a href=/booking?concertID={{row[0]}}>Book your ticket</a></button>-->
+        {% endfor %}
+        </ul>
+    </body>
+</html>
