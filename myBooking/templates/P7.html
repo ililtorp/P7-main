@@ -1,18 +1,28 @@
-{% extends "Parent.html" %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block content %}
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+    <!--Headline in tab-->
+</head>
+
 <body>
     <h1>{{ title }}</h1>
-
     <!---Headline on webpage-->
     <ul>
         {% for row in rows %}
         <li>
-            <a href="/chosenConcert?concertID={{ row[0] }}">{{ row[1] }}</a> {{ row[3] }} {{ row[6] }} {{ row[9] }} {{ row[10] }}
+            <a href="/chosenConcert?concertID={{ row[0] }}">{{ row[1] }}</a> i {{ row[3] }} <br /> 
+            {{ row[6] }} {{ row[9] }} {{ row[10] }} <img src="{path}" /> <!--Her skal vi sætte billedet ind-->
             <!-- Links to row: Concert, venue, time, price, type of seating-->
         </li>
         {% endfor %}
     </ul>
 </body>
 
-{% endblock %}
+<script>
+</script>
+
+</html>
