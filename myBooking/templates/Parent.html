@@ -59,6 +59,11 @@
 
     <!-- BUTTONS FOR GENRE START -->
     <div class="container">
+        <image src="{{url_for('static',filename = 'pop.jpg')}}">
+            <button class="btn" onclick="myPop()">POP</button>
+    </div>
+    
+    <div class="container">
         <image src="{{url_for('static',filename = 'classic.jpg')}}">
             <button class="btn" onclick="myClassic()">CLASSIC</button>
     </div>
@@ -73,15 +78,11 @@
             <button class="btn" onclick="myRock()">ROCK</button>
     </div>
 
-    <div class="container">
-        <image src="{{url_for('static',filename = 'pop1.jpg')}}">
-            <button class="btn" onclick="myPop()">POP</button>
+        </div>
     </div>
+    <!--COVER IMAGE WITH BUTTONS END-->
 
-    <div class="container">
-        <image src="{{url_for('static',filename = 'jazz.jpg')}}">
-            <button class="btn" onclick="myJazz()">JAZZ</button>
-    </div>
+    <!-- CALENDER -->
 
     <div class="container">
         <image src="{{url_for('static',filename = 'micro.jpg')}}">
@@ -154,6 +155,7 @@
 
         /* CALENDER SCRIPT*/
     </script>
+
     {% block content %} {% endblock %}
 </body>
 
