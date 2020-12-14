@@ -10,15 +10,23 @@
 </head>
 
 <body>
-    <h1>Din koncert</h1>
+    {% for row in rows %}
+    <h1>{{ row[1] }}</h1>
     <!--Laves dynamisk-->
     <!---Headline on webpage-->
     <ul>
-        {% for row in rows %}
-        <li>
-            {{ row[1] }} {{ row[2] }} {{ row[3] }} {{ row[6] }} {{ row[7] }} {{ row[8] }} {{ row[9] }} {{ row[10] }} {{ row[11] }}
+        <h4>Beskrivelse:</h4>
+            {{ row[2] }} <br /> <br /> 
+        <h4>Praktiske informationer</h4>
+            Koncerten foregår i {{ row[12] }} i {{ row[5] }} <br /> 
+            Adresse: {{ row[16] }} <br /> 
+            Koncerten starter klokken: {{ row[7] }} <br />  Dørene åbner: {{ row[8] }} <br /> Varighed: {{ row[9] }} timer <br /> 
+            Pris pr. billet: {{ row[11] }} <br /> <br /> 
+            Kontakt til {{ row[5] }}: <br /> 
+            Telefonnummer: {{ row[18] }} e-mail: {{ row[19] }} <br />  <br /> 
+
             <!-- Links to row: 1)Concert, 2) Description, 3) Venue, 6) Date, 7) Time, 8) Doors open, 9) Duration, 10) Price, 11) Type of seating-->
-        </li>
+    
         <button><a href=/booking?concertID={{row[0]}}>Book your ticket</a></button>
         {% endfor %}
     </ul>
