@@ -1,0 +1,57 @@
+/* button image START */
+.container {
+    position: inline-block;
+    width: 50%;
+    max-width: 16.5%;
+    float: left;
+    
+}
+
+.container img {
+    width: 100%;
+    height: auto;
+    padding: 10px 5px;
+}
+
+.container .btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: transparent;
+    color: transparent;
+    font-size: 16px;
+    padding: 12px 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 100px;
+    text-align: center;
+    
+}
+
+.container .btn:hover {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 253, 253);
+}
+
+/*button image END*/
+
+/* runde kanter*/
+img {
+    border-radius: 30px;
+}
+
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
