@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Din billet</title>
+    <!--Laves dynamisk-->
+    <!--Headline in tab-->
+
+    
+</head>
+
+<body>
+  
+    {% for concertinfo in concert %}
+        {% for bookinginfo in rows %}<!--Her har vi adgang til alt information om bookingen og koncerten-->
+             <h1>Din bestilling til koncerten {{ concertinfo[1] }} er gennemført!</h1>
+             <img src="{{url_for('static',filename = 'concert_images/'+concertinfo[15])}}" width="50%"/><br /> 
+             {{ bookinginfo[1] }} har nu bestilt {{ bookinginfo[5] }} billetter<br /> 
+             Koncerten finder sted kl: {{ concertinfo[7] }} d. {{ concertinfo[6] }} i {{ concertinfo[12] }} på/i {{ concertinfo[5] }} <br /> 
+             Dørene åbner klokken: {{ concertinfo[8] }} <br /> 
+             Varihed af koncerten: {{ concertinfo[9] }} timer<br /> 
+             Pause i løbet af koncerten: {{ concertinfo[10] }}<br /> 
+             Adressen er {{ concertinfo[16] }} <br /> 
+             Kontakt {{ concertinfo[5] }} på email: {{ concertinfo[18] }} eller via telefon: {{ concertinfo[17] }} 
+        {% endfor %}
+    {% endfor %}
+    <div class="container d-flex justify-content-center mt-50 mb-50">
+        <div class="row">
+            <div class="col-md-12 text-right mb-3">
+                <button class="btn btn-primary" id="download"> Download billet som pdf</button>
+                <button class="btn btn-primary" id="download"> Send billet som e-mail</button>
+            </div>
+        </div>
+    </div>
+    </div>     
+</body> 
+
+</HTML>

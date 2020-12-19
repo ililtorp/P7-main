@@ -1,26 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Dette er bookingsiden</title>
-
-        <link rel="stylesheet" href="booking-page.css">
+        <title>Bookingsiden</title>
+        <link rel="stylesheet" href="{{url_for('static',filename = 'style.css')}}">
     </head>
 
     <body>
         {% for row in rows %}
     <div class="container-form">
         <!--<form action="#">-->
-            <h1>Book your ticket for the {{ row[1] }} concert</h1> <!--Her skal vi finde ud af hvad titlen skal være-->
+            <h1>Book din billet til {{ row[1] }} koncerten</h1> <!--Her skal vi finde ud af hvad titlen skal være-->
             <form action="/booking" method="post">
                 <input type="text" name="name" placeholder="Name">
                 <input type="text" name="email" placeholder="Email Address">
                 <input type="numeric" name="phone" placeholder="Phone">
                 <input type="hidden" name="ConcertID" value={{row[0]}}>
                 <input type="numeric" name="NTickets" placeholder="Number of tickets">
-                <input type="submit" value="Book your ticket">
+                <input type="submit" value="Book din billet">
             </form>
         
 
